@@ -1,6 +1,6 @@
 # Ray-Tracer
 
-A ray-tracer being built based on the [excellent ray-tracing series of books](https://github.com/RayTracing/raytracing.github.io) by Peter Shirley. This project is a work-in-progress and is being implemented to learn about PBR in greater detail. (This repo will be updated accordingly, as and when I read more on specific topics or if I find something interesting)
+A ray-tracer based on the [excellent ray-tracing series of books](https://github.com/RayTracing/raytracing.github.io) by Peter Shirley. This project is a work-in-progress and is being implemented to learn about PBR in greater detail. (This repo will be updated accordingly, as and when I read more on specific topics or if I find something interesting)
 
 ## Current features :
 - Basic anti-aliasing
