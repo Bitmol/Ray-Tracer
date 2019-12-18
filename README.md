@@ -14,8 +14,13 @@ A ray-tracer being built based on the [excellent ray-tracing series of books](ht
 - Texture-mapping (Surface and Solid textures)
 - Different shapes for intersecton tests
 - Volumetric media
+- De-noiser
 - CPU multithreading (OpenMP or inherent C++ thread library)
 - GPU multithreading (CUDA)
 - Window manager (GLFW / SDL) with a basic GUI (ImGui)
 
+
 <img src = "Ray-Tracer/Ray-Tracer/Ray-Tracer/res/Render.jpg" width = "420" height = "280">
+
+    Original resolution of rendered image : 1200 x 800 with 10 spp. 
+
