@@ -16,7 +16,10 @@ vec3 random_in_unit_disk() {
 
 class camera {
 public:
-    camera(vec3 lookFrom, vec3 lookAt, vec3 vup, float vfov, float aspect, float aperture, float focus_dist) { // vfov = vertical field of view in degrees
+    camera(vec3 lookFrom, vec3 lookAt, vec3 vup, float vfov, float aspect, float aperture, float focus_dist, float t0, float t1) { // vfov = vertical field of view in degrees
+		
+		time0 = t0;
+		time1 = t1;
 		lens_radius = aperture / 2;
 
 		float theta = vfov * M_PI / 180;
@@ -36,7 +39,8 @@ public:
     ray get_ray(float s, float t) { 
 		vec3 rd = lens_radius * random_in_unit_disk();
 		vec3 offset = u * rd.x() + v * rd.y();
-		return ray(origin + offset, lower_left_corner + s*horizontal + t*vertical - origin - offset); 
+		float time = time0 + random_double()*(time1 - time0);
+		return ray(origin + offset, lower_left_corner + s*horizontal + t*vertical - origin - offset, time); 
 	}
 
     vec3 origin;
@@ -45,6 +49,7 @@ public:
     vec3 vertical;
 	vec3 u, v, w; // define orthonormal camera basis
 	float lens_radius;
+	float time0, time1; // variables for shutter open/ close times
 };
 
 #endif // CAMERAH
