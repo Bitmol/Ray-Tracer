@@ -7,6 +7,7 @@ A ray-tracer based on the [excellent ray-tracing series of books](https://github
 - Diffuse, Metal and Dielectric materials
 - Basic Camera implementation
 - Depth of field
+- Motion Blur
 
 ## To-do (Work-in-Progress) : 
 - Multiple-lights
@@ -20,7 +21,7 @@ A ray-tracer based on the [excellent ray-tracing series of books](https://github
 - Window manager (GLFW / SDL) with a basic GUI (ImGui)
 
 
-<img src = "Ray-Tracer/Ray-Tracer/Ray-Tracer/res/Render.jpg" width = "420" height = "280">
+<img src = "Ray-Tracer/Ray-Tracer/Ray-Tracer/res/Render_weekend.jpg" width = "420" height = "280">
 
     Original resolution of rendered image : 1200 x 800 with 10 spp. 
 
