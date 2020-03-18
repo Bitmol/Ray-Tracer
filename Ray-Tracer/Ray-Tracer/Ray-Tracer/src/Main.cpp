@@ -11,7 +11,8 @@
 hitable *random_scene() {
 	int n = 50000;
 	hitable **list = new hitable*[n + 1];
-	list[0] = new sphere(vec3(0, -1000, 0), 1000, new lambertian(vec3(0.5, 0.5, 0.5)));
+	texture *checker = new checker_texture(new constant_texture(vec3(0.2, 0.3, 0.1)), new constant_texture(vec3(0.9, 0.9, 0.9)));
+	list[0] = new sphere(vec3(0, -1000, 0), 1000, new lambertian(checker));
 	int i = 1;
 	
 	for (int a = -10; a < 10; ++a) {
@@ -22,7 +23,7 @@ hitable *random_scene() {
 				
 				if (choose_mat < 0.8) { // Diffuse
 					list[i++] = new moving_sphere(center, center + vec3(0, 0.5*random_double(), 0), 0., 1.0, 0.2, new lambertian(
-						vec3(random_double() * random_double(), random_double() * random_double(), random_double() * random_double()))
+						new constant_texture(vec3(random_double() * random_double(), random_double() * random_double(), random_double() * random_double())))
 					);
 				}
 				else if (choose_mat < 0.95) { // Metal
@@ -38,10 +39,18 @@ hitable *random_scene() {
 	}
 
 	list[i++] = new sphere(vec3(0, 1, 0), 1.0, new dielectric(1.5));
-	list[i++] = new sphere(vec3(-4, 1, 0), 1.0, new lambertian(vec3(0.4, 0.2, 0.1)));
+	list[i++] = new sphere(vec3(-4, 1, 0), 1.0, new lambertian(new constant_texture(vec3(0.4, 0.2, 0.1))));
 	list[i++] = new sphere(vec3(4, 1, 0), 1.0, new metal(vec3(0.7, 0.6, 0.5), 0.0));
 
 	return new hitable_list(list, i);
+}
+
+hitable *two_perlin_spheres() {
+	texture *perlin_tex = new noise_texture(4);
+	hitable **list = new hitable*[2];
+	list[0] = new sphere(vec3(0, -1000, 0), 1000, new lambertian(perlin_tex));
+	list[1] = new sphere(vec3(0, 2, 0), 2, new lambertian(perlin_tex));
+	return new hitable_list(list, 2);
 }
 
 vec3 color(const ray& r, hitable *world, int depth) {
@@ -64,16 +73,17 @@ vec3 color(const ray& r, hitable *world, int depth) {
 }
 
 int main() {
-    int nx = 200;
-    int ny = 100;
-    int ns = 10;
+    int nx = 400;
+    int ny = 300;
+    int ns = 100;
     std::ofstream outfile_ppm;
     outfile_ppm.open("C:\\Users\\anmol\\Desktop\\Scripts\\Cpp\\Projects\\RTT\\Ray-Tracer\\Ray-Tracer\\Ray-Tracer\\res\\Render.ppm");
 
     outfile_ppm << "P3\n" << nx << " " << ny << "\n255\n";
 
-    hitable *world = random_scene();
-    
+    //hitable *world = random_scene();
+	hitable *world = two_perlin_spheres();
+
 	vec3 lookFrom(13, 2, 3);
 	vec3 lookAt(0, 0, 0);
 	float dist_to_focus = 10.0; //(lookFrom - lookAt).length();

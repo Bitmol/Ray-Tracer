@@ -158,12 +158,15 @@
     <ClCompile Include="src\Main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\bvh.h" />
     <ClInclude Include="src\camera.h" />
     <ClInclude Include="src\hitable.h" />
     <ClInclude Include="src\hitablelist.h" />
     <ClInclude Include="src\material.h" />
+    <ClInclude Include="src\perlin.h" />
     <ClInclude Include="src\ray.h" />
     <ClInclude Include="src\sphere.h" />
+    <ClInclude Include="src\texture.h" />
     <ClInclude Include="src\vec3.h" />
   </ItemGroup>
   <ItemGroup>
