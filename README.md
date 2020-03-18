@@ -8,11 +8,12 @@ A ray-tracer based on the [excellent ray-tracing series of books](https://github
 - Basic Camera implementation
 - Depth of field
 - Motion Blur
+- Basic BVH implementation
+- Textures (experimenting with noise functions)
 
 ## To-do (Work-in-Progress) : 
 - Multiple-lights
 - Waveform obj loader for model/scene creation
-- Texture-mapping (Surface and Solid textures)
 - Different shapes for intersecton tests
 - Volumetric media
 - De-noiser
