@@ -9,7 +9,7 @@ A ray-tracer based on the [excellent ray-tracing series of books](https://github
 - Depth of field
 - Motion Blur
 - Basic BVH implementation
-- Textures (experimenting with noise functions)
+- Textures (external images + experimenting with noise functions)
 
 ## To-do (Work-in-Progress) : 
 - Multiple-lights
