@@ -7,6 +7,8 @@
 #include "material.h"
 #include "sphere.h"
 
+#define STB_IMAGE_IMPLEMENTATION
+#include "stb_image.h"
 
 hitable *random_scene() {
 	int n = 50000;
@@ -53,36 +55,52 @@ hitable *two_perlin_spheres() {
 	return new hitable_list(list, 2);
 }
 
+hitable *image_texture_sphere() {
+	// Test earth texture on sphere
+	int nx, ny, nn;
+	unsigned char *tex = stbi_load("C:\\Users\\anmol\\Desktop\\Scripts\\Cpp\\Projects\\RTT\\Ray-Tracer\\Ray-Tracer\\Ray-Tracer\\res\\earth.jpg", &nx, &ny, &nn, 0);
+	material *mat = new lambertian(new image_texture(tex, nx, ny));
+
+	return new sphere(vec3(0, 0, 0), 2, mat);
+}
+
+// Main color
 vec3 color(const ray& r, hitable *world, int depth) {
 
     hit_record rec;
     if(world->hit(r, 0.001, FLT_MAX, rec)) {
+		// World scene color
         ray scattered;
         vec3 attenuation;
-        if (depth < 50 && rec.mat_ptr->scatter(r, rec, attenuation, scattered)) {
-            return attenuation * color(scattered, world, depth + 1);
-        }
-        else
-            return vec3(0, 0, 0);
+		vec3 emitted = rec.mat_ptr->emitted(rec.u, rec.v, rec.p);
+		if (depth < 50 && rec.mat_ptr->scatter(r, rec, attenuation, scattered)) {
+			return emitted + attenuation * color(scattered, world, depth + 1);
+		}
+		else
+			//return vec3(0, 0, 0);
+			return emitted;
     }
     else {
-        vec3 unit_direction = unit_vector(r.direction());
+	   // Background color
+       /* vec3 unit_direction = unit_vector(r.direction());
         float t = 0.5 * (unit_direction.y() + 1.);
-        return (1. - t) * vec3(1., 1., 1.) + t * vec3(0.5, 0.7, 1.);
+        return (1. - t) * vec3(1., 1., 1.) + t * vec3(0.5, 0.7, 1.);*/
+		return vec3(0, 0, 0); // Return background as black
     }
 }
 
 int main() {
     int nx = 400;
     int ny = 300;
-    int ns = 100;
+    int ns = 10;
     std::ofstream outfile_ppm;
     outfile_ppm.open("C:\\Users\\anmol\\Desktop\\Scripts\\Cpp\\Projects\\RTT\\Ray-Tracer\\Ray-Tracer\\Ray-Tracer\\res\\Render.ppm");
 
     outfile_ppm << "P3\n" << nx << " " << ny << "\n255\n";
 
     //hitable *world = random_scene();
-	hitable *world = two_perlin_spheres();
+	//hitable *world = two_perlin_spheres();
+	hitable *world = image_texture_sphere();
 
 	vec3 lookFrom(13, 2, 3);
 	vec3 lookAt(0, 0, 0);

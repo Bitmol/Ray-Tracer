@@ -5,6 +5,14 @@
 
 class material;
 
+void get_sphere_uv(const vec3& p, float& u, float& v) {
+	//spherical coordinates - physics convention (theta - vertical, phi - horizontal)
+	float phi = atan2(p.z(), p.x());
+	float theta = asin(p.y());
+	u = 1 - (phi + M_PI) / (2 * M_PI);
+	v = (theta + M_PI / 2) / M_PI;
+}
+
 class sphere: public hitable {
 public:
     sphere() {}
@@ -27,6 +35,7 @@ bool sphere::hit(const ray& r, float t_min, float t_max, hit_record& rec) const 
         if (temp < t_max && temp > t_min) {
             rec.t = temp;
             rec.p = r.point_at_parameter(rec.t);
+			get_sphere_uv((rec.p - center) / radius, rec.u, rec.v); // conform texture around sphere
             rec.normal = (rec.p - center) / radius;
             rec.mat_ptr = mat_ptr;
             return true;
@@ -35,6 +44,7 @@ bool sphere::hit(const ray& r, float t_min, float t_max, hit_record& rec) const 
         if(temp < t_max && temp > t_min) {
             rec.t = temp;
             rec.p = r.point_at_parameter(rec.t);
+			get_sphere_uv((rec.p - center) / radius, rec.u, rec.v); // conform texture around sphere
             rec.normal = (rec.p - center) / radius;
             rec.mat_ptr = mat_ptr;
             return true;

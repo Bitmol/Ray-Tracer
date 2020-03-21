@@ -41,24 +41,30 @@ bool refract(const vec3& v, const vec3& n, float ni_over_nt, vec3& refracted) {
         return false;
 }
 
+// MAIN MATERIAL INTERFACE
 class material {
 public:
     virtual bool scatter(const ray& ray_in, const hit_record& rec, vec3& attenuation, ray& scattered) const = 0;
+	virtual vec3 emitted(float u, float v, const vec3& p) const {
+		return vec3(0, 0, 0);
+	}
 };
 
+// LAMBERTIAN
 class lambertian: public material {
 public:
     lambertian(texture *a) : albedo(a) {}
     virtual bool scatter(const ray& ray_in, const hit_record& rec, vec3& attenuation, ray& scattered) const {
         vec3 target = rec.p + rec.normal + random_in_unit_sphere();
         scattered = ray(rec.p, target - rec.p, ray_in.time());
-        attenuation = albedo->value(0, 0, rec.p);
+        attenuation = albedo->value(rec.u, rec.v, rec.p);
         return true;
     }
 
     texture *albedo;
 };
 
+// METAL
 class metal : public material {
 public:
     metal(const vec3& a, float f) : albedo(a) { if (f < 1) fuzz = f; else fuzz = 1; } // Added Fuzziness parameter
@@ -73,6 +79,7 @@ public:
     float fuzz;
 };
 
+// DIELECTRIC
 class dielectric : public material {
 public:
     dielectric(float ri) : ref_idx(ri) {}
@@ -113,5 +120,17 @@ public:
     }
 
     float ref_idx;
+};
+
+// EMMITTERS - DIFFUSE LIGHT
+class diffuse_light : public material {
+public:
+	diffuse_light(texture* a) : emit(a) {}
+	virtual bool scatter(const ray& r_in, const hit_record& rec, vec3& attenuation, ray& scattered) const { return false; }
+	virtual vec3 emitted(float u, float v, const  vec3& p) const {
+		return emit->value(u, v, p);
+	}
+
+	texture *emit;
 };
 #endif // MATERIAL_H
