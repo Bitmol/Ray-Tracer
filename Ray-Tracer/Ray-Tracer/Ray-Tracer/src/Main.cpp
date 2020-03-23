@@ -2,15 +2,20 @@
 #include <fstream>
 #include <cfloat>
 
-#include "camera.h"
-#include "hitablelist.h"
-#include "material.h"
-#include "sphere.h"
-#include "rectangle.h"
-
 #define STB_IMAGE_IMPLEMENTATION
-#include "stb_image.h"
+#include "Utility/stb_image.h"
+#include "Utility/camera.h"
+#include "Utility/hitablelist.h"
 
+#include "Texture/material.h"
+
+#include "Shape/sphere.h"
+#include "Shape/rectangle.h"
+#include "Shape/box.h"
+#include "Shape/instance.h"
+
+
+// GENERATE SCENES
 hitable *random_scene() {
 	int n = 50000;
 	hitable **list = new hitable*[n + 1];
@@ -89,6 +94,7 @@ hitable *cornell_box() {
 	material *green = new lambertian(new constant_texture(vec3(0.12, 0.45, 0.15)));
 	material *light = new diffuse_light(new constant_texture(vec3(15, 15, 15)));
 
+	//Surrounding box
 	list[i++] = (hitable*) new flip_normals(new yz_rect(0, 555, 0, 555, 555, green));
 	list[i++] = new yz_rect(0, 555, 0, 555, 0, red);
 	list[i++] = new xz_rect(213, 343, 227, 332, 554, light);
@@ -96,6 +102,15 @@ hitable *cornell_box() {
 	list[i++] = new xz_rect(0, 555, 0, 555, 0, white);
 	list[i++] = (hitable*) new flip_normals(new xy_rect(0, 555, 0, 555, 555, white));
 	
+	// 2 smaller boxes inside box - NON INSTANCED
+	/*list[i++] = new box(vec3(130, 0, 65), vec3(295, 165, 230), white);
+	list[i++] = new box(vec3(265, 0, 295), vec3(430, 330, 460), white);
+	*/
+
+	// Rotated and translated boxes
+	list[i++] = new translate(new rotate_y(new box(vec3(0, 0, 0), vec3(165, 165, 165), white), -18), vec3(130, 0, 65));
+	list[i++] = new translate(new rotate_y(new box(vec3(0, 0, 0), vec3(165, 330, 165), white), 15), vec3(265, 0, 295));
+
 	return new hitable_list(list, i);
 }
 
@@ -128,7 +143,7 @@ vec3 color(const ray& r, hitable *world, int depth) {
 int main() {
     int nx = 400;
     int ny = 300;
-    int ns = 50;
+    int ns = 25;
     std::ofstream outfile_ppm;
     outfile_ppm.open("C:\\Users\\anmol\\Desktop\\Scripts\\Cpp\\Projects\\RTT\\Ray-Tracer\\Ray-Tracer\\Ray-Tracer\\res\\Render.ppm");
 

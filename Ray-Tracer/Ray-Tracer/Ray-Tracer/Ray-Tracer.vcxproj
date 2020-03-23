@@ -158,18 +158,20 @@
     <ClCompile Include="src\Main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\bvh.h" />
-    <ClInclude Include="src\camera.h" />
-    <ClInclude Include="src\hitable.h" />
-    <ClInclude Include="src\hitablelist.h" />
-    <ClInclude Include="src\material.h" />
-    <ClInclude Include="src\perlin.h" />
-    <ClInclude Include="src\ray.h" />
-    <ClInclude Include="src\rectangle.h" />
-    <ClInclude Include="src\sphere.h" />
-    <ClInclude Include="src\stb_image.h" />
-    <ClInclude Include="src\texture.h" />
-    <ClInclude Include="src\vec3.h" />
+    <ClInclude Include="src\Shape\box.h" />
+    <ClInclude Include="src\Shape\instance.h" />
+    <ClInclude Include="src\Utility\bvh.h" />
+    <ClInclude Include="src\Utility\camera.h" />
+    <ClInclude Include="src\Utility\hitable.h" />
+    <ClInclude Include="src\Utility\hitablelist.h" />
+    <ClInclude Include="src\Texture\material.h" />
+    <ClInclude Include="src\Texture\perlin.h" />
+    <ClInclude Include="src\Utility\ray.h" />
+    <ClInclude Include="src\Shape\rectangle.h" />
+    <ClInclude Include="src\Shape\sphere.h" />
+    <ClInclude Include="src\Utility\stb_image.h" />
+    <ClInclude Include="src\Texture\texture.h" />
+    <ClInclude Include="src\Utility\vec3.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="res\Render.ppm" />
