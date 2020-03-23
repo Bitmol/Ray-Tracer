@@ -6,6 +6,7 @@
 #include "hitablelist.h"
 #include "material.h"
 #include "sphere.h"
+#include "rectangle.h"
 
 #define STB_IMAGE_IMPLEMENTATION
 #include "stb_image.h"
@@ -64,6 +65,40 @@ hitable *image_texture_sphere() {
 	return new sphere(vec3(0, 0, 0), 2, mat);
 }
 
+hitable *simple_light() {
+	texture *perlin_tex = new noise_texture(4);
+	hitable **list = new hitable*[4];
+	
+	// Default scene
+	list[0] = new sphere(vec3(0, -1000, 0), 1000, new lambertian(perlin_tex));
+	list[1] = new sphere(vec3(0, 2, 0), 2, new lambertian(perlin_tex));
+	
+	// Emitters
+	list[2] = new sphere(vec3(0, 7, 0), 2, new diffuse_light(new constant_texture(vec3(4, 4, 4))));
+	list[3] = new xy_rect(3, 5, 1, 3, -2, new diffuse_light(new constant_texture(vec3(4, 4, 4))));
+	
+	return new hitable_list(list, 4);
+}
+
+hitable *cornell_box() {
+	hitable **list = new hitable*[6];
+	int i = 0;
+
+	material *red = new lambertian(new constant_texture(vec3(0.65, 0.05, 0.05)));
+	material *white = new lambertian(new constant_texture(vec3(0.73, 0.73, 0.73)));
+	material *green = new lambertian(new constant_texture(vec3(0.12, 0.45, 0.15)));
+	material *light = new diffuse_light(new constant_texture(vec3(15, 15, 15)));
+
+	list[i++] = (hitable*) new flip_normals(new yz_rect(0, 555, 0, 555, 555, green));
+	list[i++] = new yz_rect(0, 555, 0, 555, 0, red);
+	list[i++] = new xz_rect(213, 343, 227, 332, 554, light);
+	list[i++] = (hitable*) new flip_normals(new xz_rect(0, 555, 0, 555, 555, white));
+	list[i++] = new xz_rect(0, 555, 0, 555, 0, white);
+	list[i++] = (hitable*) new flip_normals(new xy_rect(0, 555, 0, 555, 555, white));
+	
+	return new hitable_list(list, i);
+}
+
 // Main color
 vec3 color(const ray& r, hitable *world, int depth) {
 
@@ -85,6 +120,7 @@ vec3 color(const ray& r, hitable *world, int depth) {
        /* vec3 unit_direction = unit_vector(r.direction());
         float t = 0.5 * (unit_direction.y() + 1.);
         return (1. - t) * vec3(1., 1., 1.) + t * vec3(0.5, 0.7, 1.);*/
+		
 		return vec3(0, 0, 0); // Return background as black
     }
 }
@@ -92,7 +128,7 @@ vec3 color(const ray& r, hitable *world, int depth) {
 int main() {
     int nx = 400;
     int ny = 300;
-    int ns = 10;
+    int ns = 50;
     std::ofstream outfile_ppm;
     outfile_ppm.open("C:\\Users\\anmol\\Desktop\\Scripts\\Cpp\\Projects\\RTT\\Ray-Tracer\\Ray-Tracer\\Ray-Tracer\\res\\Render.ppm");
 
@@ -100,13 +136,16 @@ int main() {
 
     //hitable *world = random_scene();
 	//hitable *world = two_perlin_spheres();
-	hitable *world = image_texture_sphere();
+	//hitable *world = image_texture_sphere();
+	hitable *world = cornell_box();
 
-	vec3 lookFrom(13, 2, 3);
-	vec3 lookAt(0, 0, 0);
+	vec3 lookFrom(278, 278, -800);
+	vec3 lookAt(278, 278, 0);
 	float dist_to_focus = 10.0; //(lookFrom - lookAt).length();
 	float aperture = 0.0;
-	camera cam(lookFrom, lookAt, vec3(0, 1, 0), 20, float(nx)/float(ny), aperture, dist_to_focus, 0.0, 1.0);
+	float vfov = 40.0;
+
+	camera cam(lookFrom, lookAt, vec3(0, 1, 0), vfov, float(nx)/float(ny), aperture, dist_to_focus, 0.0, 1.0);
 
     for(int j = ny - 1; j >= 0; --j) {
         for(int i = 0; i < nx; ++i) {

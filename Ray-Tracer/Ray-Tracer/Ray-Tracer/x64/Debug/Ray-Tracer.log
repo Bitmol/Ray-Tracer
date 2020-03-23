@@ -12,29 +12,32 @@ c:\users\anmol\desktop\scripts\cpp\projects\rtt\ray-tracer\ray-tracer\ray-tracer
 c:\users\anmol\desktop\scripts\cpp\projects\rtt\ray-tracer\ray-tracer\ray-tracer\src\texture.h(81): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
 c:\users\anmol\desktop\scripts\cpp\projects\rtt\ray-tracer\ray-tracer\ray-tracer\src\material.h(23): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
 c:\users\anmol\desktop\scripts\cpp\projects\rtt\ray-tracer\ray-tracer\ray-tracer\src\material.h(35): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-c:\users\anmol\desktop\scripts\cpp\projects\rtt\ray-tracer\ray-tracer\ray-tracer\src\material.h(95): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\anmol\desktop\scripts\cpp\projects\rtt\ray-tracer\ray-tracer\ray-tracer\src\material.h(102): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
 c:\users\anmol\desktop\scripts\cpp\projects\rtt\ray-tracer\ray-tracer\ray-tracer\src\camera.h(12): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
 c:\users\anmol\desktop\scripts\cpp\projects\rtt\ray-tracer\ray-tracer\ray-tracer\src\camera.h(25): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
 c:\users\anmol\desktop\scripts\cpp\projects\rtt\ray-tracer\ray-tracer\ray-tracer\src\camera.h(42): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
 c:\users\anmol\desktop\scripts\cpp\projects\rtt\ray-tracer\ray-tracer\ray-tracer\src\hitablelist.h(21): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
 c:\users\anmol\desktop\scripts\cpp\projects\rtt\ray-tracer\ray-tracer\ray-tracer\src\sphere.h(12): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
 c:\users\anmol\desktop\scripts\cpp\projects\rtt\ray-tracer\ray-tracer\ray-tracer\src\sphere.h(13): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-c:\users\anmol\desktop\scripts\cpp\projects\rtt\ray-tracer\ray-tracer\ray-tracer\src\main.cpp(16): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\anmol\desktop\scripts\cpp\projects\rtt\ray-tracer\ray-tracer\ray-tracer\src\main.cpp(22): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-c:\users\anmol\desktop\scripts\cpp\projects\rtt\ray-tracer\ray-tracer\ray-tracer\src\main.cpp(23): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-c:\users\anmol\desktop\scripts\cpp\projects\rtt\ray-tracer\ray-tracer\ray-tracer\src\main.cpp(23): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\anmol\desktop\scripts\cpp\projects\rtt\ray-tracer\ray-tracer\ray-tracer\src\rectangle.h(16): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\anmol\desktop\scripts\cpp\projects\rtt\ray-tracer\ray-tracer\ray-tracer\src\rectangle.h(56): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\anmol\desktop\scripts\cpp\projects\rtt\ray-tracer\ray-tracer\ray-tracer\src\rectangle.h(96): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\anmol\desktop\scripts\cpp\projects\rtt\ray-tracer\ray-tracer\ray-tracer\src\main.cpp(17): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\anmol\desktop\scripts\cpp\projects\rtt\ray-tracer\ray-tracer\ray-tracer\src\main.cpp(23): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+c:\users\anmol\desktop\scripts\cpp\projects\rtt\ray-tracer\ray-tracer\ray-tracer\src\main.cpp(24): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
 c:\users\anmol\desktop\scripts\cpp\projects\rtt\ray-tracer\ray-tracer\ray-tracer\src\main.cpp(24): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\anmol\desktop\scripts\cpp\projects\rtt\ray-tracer\ray-tracer\ray-tracer\src\main.cpp(27): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\anmol\desktop\scripts\cpp\projects\rtt\ray-tracer\ray-tracer\ray-tracer\src\main.cpp(25): warning C4305: 'argument': truncation from 'double' to 'float'
 c:\users\anmol\desktop\scripts\cpp\projects\rtt\ray-tracer\ray-tracer\ray-tracer\src\main.cpp(28): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-c:\users\anmol\desktop\scripts\cpp\projects\rtt\ray-tracer\ray-tracer\ray-tracer\src\main.cpp(29): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\anmol\desktop\scripts\cpp\projects\rtt\ray-tracer\ray-tracer\ray-tracer\src\main.cpp(33): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-c:\users\anmol\desktop\scripts\cpp\projects\rtt\ray-tracer\ray-tracer\ray-tracer\src\main.cpp(34): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\anmol\desktop\scripts\cpp\projects\rtt\ray-tracer\ray-tracer\ray-tracer\src\main.cpp(37): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\anmol\desktop\scripts\cpp\projects\rtt\ray-tracer\ray-tracer\ray-tracer\src\main.cpp(44): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\anmol\desktop\scripts\cpp\projects\rtt\ray-tracer\ray-tracer\ray-tracer\src\main.cpp(29): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\anmol\desktop\scripts\cpp\projects\rtt\ray-tracer\ray-tracer\ray-tracer\src\main.cpp(30): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\anmol\desktop\scripts\cpp\projects\rtt\ray-tracer\ray-tracer\ray-tracer\src\main.cpp(34): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\anmol\desktop\scripts\cpp\projects\rtt\ray-tracer\ray-tracer\ray-tracer\src\main.cpp(35): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\anmol\desktop\scripts\cpp\projects\rtt\ray-tracer\ray-tracer\ray-tracer\src\main.cpp(38): warning C4305: 'argument': truncation from 'double' to 'float'
 c:\users\anmol\desktop\scripts\cpp\projects\rtt\ray-tracer\ray-tracer\ray-tracer\src\main.cpp(45): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\anmol\desktop\scripts\cpp\projects\rtt\ray-tracer\ray-tracer\ray-tracer\src\main.cpp(70): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\anmol\desktop\scripts\cpp\projects\rtt\ray-tracer\ray-tracer\ray-tracer\src\main.cpp(81): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-c:\users\anmol\desktop\scripts\cpp\projects\rtt\ray-tracer\ray-tracer\ray-tracer\src\main.cpp(82): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-c:\users\anmol\desktop\scripts\cpp\projects\rtt\ray-tracer\ray-tracer\ray-tracer\src\main.cpp(82): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\anmol\desktop\scripts\cpp\projects\rtt\ray-tracer\ray-tracer\ray-tracer\src\main.cpp(46): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\anmol\desktop\scripts\cpp\projects\rtt\ray-tracer\ray-tracer\ray-tracer\src\main.cpp(87): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\anmol\desktop\scripts\cpp\projects\rtt\ray-tracer\ray-tracer\ray-tracer\src\main.cpp(88): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\anmol\desktop\scripts\cpp\projects\rtt\ray-tracer\ray-tracer\ray-tracer\src\main.cpp(89): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\anmol\desktop\scripts\cpp\projects\rtt\ray-tracer\ray-tracer\ray-tracer\src\main.cpp(106): warning C4305: 'argument': truncation from 'double' to 'float'
 c:\users\anmol\desktop\scripts\cpp\projects\rtt\ray-tracer\ray-tracer\ray-tracer\src\vec3.h(25): warning C4172: returning address of local variable or temporary
   Ray-Tracer.vcxproj -> C:\Users\anmol\Desktop\Scripts\Cpp\Projects\RTT\Ray-Tracer\Ray-Tracer\x64\Debug\Ray-Tracer.exe
