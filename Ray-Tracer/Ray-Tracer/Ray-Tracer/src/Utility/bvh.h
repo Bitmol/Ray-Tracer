@@ -22,8 +22,11 @@ int box_x_compare(const void* a, const void* b) {
 	if (!ah->bounding_box(0, 0, box_left) || !bh->bounding_box(0, 0, box_right))
 		std::cerr << "no bounding box in bvh_node constructor\n";
 
+	vec3 _min_left = box_left.min();
+	vec3 _min_right = box_right.min();
+
 	// comparing BB of 2 objects on X-axis
-	if (box_left.min().x() - box_right.min.x() < 0.0)
+	if (_min_left.x() - _min_right.x() < 0.0)
 		return -1;
 	else
 		return 1;
@@ -37,8 +40,12 @@ int box_y_compare(const void* a, const void* b) {
 	if (!ah->bounding_box(0, 0, box_left) || !bh->bounding_box(0, 0, box_right))
 		std::cerr << "no bounding box in bvh_node constructor\n";
 
+
+	vec3 _min_left = box_left.min();
+	vec3 _min_right = box_right.min();
+
 	// comparing BB of 2 objects on Y-axis
-	if (box_left.min().y() - box_right.min.y() < 0.0)
+	if (_min_left.y() - _min_right.y() < 0.0)
 		return -1;
 	else
 		return 1;
@@ -52,8 +59,11 @@ int box_z_compare(const void* a, const void* b) {
 	if (!ah->bounding_box(0, 0, box_left) || !bh->bounding_box(0, 0, box_right))
 		std::cerr << "no bounding box in bvh_node constructor\n";
 
+	vec3 _min_left = box_left.min();
+	vec3 _min_right = box_right.min();
+
 	// comparing BB of 2 objects on Z-axis
-	if (box_left.min().z() - box_right.min.z() < 0.0)
+	if (_min_left.z() - _min_right.z() < 0.0)
 		return -1;
 	else
 		return 1;

@@ -160,6 +160,7 @@
   <ItemGroup>
     <ClInclude Include="src\Shape\box.h" />
     <ClInclude Include="src\Shape\instance.h" />
+    <ClInclude Include="src\Texture\volume.h" />
     <ClInclude Include="src\Utility\bvh.h" />
     <ClInclude Include="src\Utility\camera.h" />
     <ClInclude Include="src\Utility\hitable.h" />

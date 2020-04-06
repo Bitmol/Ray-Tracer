@@ -4,25 +4,18 @@ A ray-tracer based on the [excellent ray-tracing series of books](https://github
 
 ## Current features :
 - Basic anti-aliasing
-- Diffuse, Metal and Dielectric materials
-- Basic Camera implementation
+- Diffuse, metal, dielectric, diffuse emitter materials 
+- Basic camera implementation
 - Depth of field
-- Motion Blur
+- Motion blur
 - Basic BVH implementation
 - Textures (external images + experimenting with noise functions)
-
-## To-do (Work-in-Progress) : 
-- Multiple-lights
-- Waveform obj loader for model/scene creation
-- Different shapes for intersecton tests
-- Volumetric media
-- De-noiser
-- CPU multithreading (OpenMP or inherent C++ thread library)
-- GPU multithreading (CUDA)
-- Window manager (GLFW / SDL) with a basic GUI (ImGui)
+- Instancing (rotations and translations)
+- Simple volumetric media
 
 
 <img src = "Ray-Tracer/Ray-Tracer/Ray-Tracer/res/Render_weekend.jpg" width = "420" height = "280">
 
     Original resolution of rendered image : 1200 x 800 with 10 spp. 
+    Scene taken from the book : Ray-tracing in a Weekend
 

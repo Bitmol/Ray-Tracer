@@ -102,7 +102,7 @@ bool rotate_y::hit(const ray& r, float t_min, float t_max, hit_record& rec) cons
 	origin[2] = sin_theta * r.origin()[0] + cos_theta * r.origin()[2];
 
 	direction[0] = cos_theta * r.direction()[0] - sin_theta * r.direction()[2];
-	direction[2] = sin_theta * r.direction()[0] - cos_theta * r.direction()[2];
+	direction[2] = sin_theta * r.direction()[0] + cos_theta * r.direction()[2];
 
 	ray rotated_ray(origin, direction, r.time());
 
