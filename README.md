@@ -4,7 +4,7 @@ A ray-tracer based on the [excellent ray-tracing series of books](https://github
 
 ## Current features :
 - Basic anti-aliasing
-- Diffuse, metal, dielectric, diffuse emitter materials 
+- Diffuse, metal, dielectric, emitter materials 
 - Basic camera implementation
 - Depth of field
 - Motion blur
@@ -14,8 +14,12 @@ A ray-tracer based on the [excellent ray-tracing series of books](https://github
 - Simple volumetric media
 
 
-<img src = "Ray-Tracer/Ray-Tracer/Ray-Tracer/res/Render_weekend.jpg" width = "420" height = "280">
-
+<img src = "Ray-Tracer/Ray-Tracer/Ray-Tracer/res/Render_weekend.jpg" width = "430" height = "300">  <img src = "Ray-Tracer/Ray-Tracer/Ray-Tracer/res/Render_nextweek.png" width = "430" height = "300">
+    
+    [LEFT]
     Original resolution of rendered image : 1200 x 800 with 10 spp. 
-    Scene taken from the book : Ray-tracing in a Weekend
+    Scene taken from the book :- Ray-Tracing in one weekend
+    [RIGHT]
+    Original resolution of rendered image : 1200 x 800 with 500 spp. 
+    Scene taken from the book :- Ray-Tracing: The Next Week
 
